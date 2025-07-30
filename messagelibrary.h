@@ -9,8 +9,11 @@ class MessageLibrary
 public:
     MessageLibrary(std::string fileName, Importance importanceByDefault);
 
+    void setDefaultImportance(Importance newDefaultImportance); // Изменить уровень важности сообщения по умолчанию
+    void addLogEntry(const Message &msg); // Записать новое сообщение в журнал
+
 private:
-    std::ofstream _journalFile;
+    std::ofstream _logFile;
     Importance _importanceByDefault;
 };
 

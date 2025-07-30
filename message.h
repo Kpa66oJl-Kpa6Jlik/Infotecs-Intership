@@ -2,7 +2,7 @@
 #define MESSAGE_H
 
 #include <string>
-#include <chrono>
+#include <ctime>
 
 enum class Importance {Low, Medium, High};
 
@@ -11,10 +11,16 @@ class Message
 public:
     Message(std::string content, Importance importance);
 
+    Importance getImportance() const;
+    std::string getContent() const;
+    std::time_t getTime() const;
+
+    std::string getImportanceString() const;
+
 private:
     std::string _text;
     Importance _importance;
-    std::chrono::time_point<std::chrono::system_clock> _time;
+    std::time_t _time;
 };
 
 #endif // MESSAGE_H
